@@ -30,7 +30,7 @@ const Card = () => {
           discovered a burgeoning passion for coding. This newfound enthusiasm
           led me to a coveted coding role within the Air Force, where I
           sharpened my skills with Python. Outside of my official duties, my
-          insatiable curiosity drove me to explore Django and later, React. For
+          curiosity drove me to explore Django and later, React. For
           me, every coding challenge presents a puzzle, and I revel in piecing
           together its solution.
           <br />
