@@ -1,11 +1,16 @@
 "use client";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import { FaStarOfLife } from "react-icons/fa";
+import thatsme from "../public/thats_me.png";
+import thatsmesm from "../public/sm_thats_me.png";
+import avatar from "../public/IMG_1506.jpg";
+import wave from "../public/wave.png";
 
 export default function App() {
   const [page, setPage] = useState("Home");
+
   return (
-    <main className="w-screen ">
+    <main className="w-screen snap-y">
       <NavBar page={page} setPage={setPage} />
       <div className=" items-center flex h-screen">
         <Home />
@@ -19,12 +24,15 @@ export default function App() {
 
 const Card = () => {
   return (
-    <div className=" bg-card h-auto w-screen rounded-[50px] mx-16 -translate-y-32 grid grid-cols-3 gap-4">
-      <div className="items-center  col-span-2 m-8">
-        <div className="text-nav font-bold text-3xl text-primary">
+    <div
+      id="About"
+      className="justify-center items-center text-center lg:text-left h-auto w-screen rounded-[50px] mx-4 md:mx-8 -translate-y-32 grid-row-3 grid lg:grid-cols-3 gap-12 snap-center "
+    >
+      <div className="items-center col-span-2 md:m-8 m-2">
+        <div className="text-nav font-bold text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-primary ">
           A little bit about me
         </div>
-        <div className="mt-4 text-white font-nav text-xl">
+        <div className="mt-4 text-white font-nav font-semibold text-sm  lg:text-md xl:text-lg 2xl:text-xl">
           I began my career in the RAF as an avionics engineer. However, it was
           during my off-hours, tinkering with game creation in Unity3D, that I
           discovered a burgeoning passion for coding. This newfound enthusiasm
@@ -43,9 +51,51 @@ const Card = () => {
           journey so far has been a whirlwind of excitement, and I eagerly await
           the countless lines of code that lie ahead.
         </div>
+        {/* <div className=" col-start-3 rounded-[40px] w-full mt-4 lg:hidden aspect-square h-0 mb-0">
+          <img
+            className=" relative w-1/2 rounded-[40px] m-4 border-8 border-card mx-auto"
+            src={avatar.src}
+          />
+          <img
+            src={thatsmesm.src}
+            className=" absolute -bottom-96 -left-6 w-1/4"
+          />
+        </div> */}
       </div>
-      <div className="items-center col-start-3 text-center  bg-white rounded-[40px] m-8 aspect-square">
-        Avatar Placeholder
+      <div className="relative items-center col-start-3 text-center rounded-[40px] m-8 aspect-square hidden lg:block">
+        <img src={thatsme.src} className=" absolute -top-14 -left-6" />
+        <img
+          className="m-4 w-auto rounded-[40px] m-4 border-8 border-card"
+          src={avatar.src}
+        ></img>
+      </div>
+    </div>
+  );
+};
+
+const Home = () => {
+  return (
+    <div
+      id="home"
+      className="w-screen h-screen grid grid-cols-3 items-center justify-center"
+    >
+      <div className="font-nav font-black text-white -translate-y-32 m-8 lg:ml-32 snap-center col-span-3 lg:col-span-2 items-center text-center lg:text-left">
+        <div className=" text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
+          <h1>Hello,</h1>
+          <h1>
+            my name is <span className="text-primary">James</span>
+          </h1>
+        </div>
+        <div className="mt-4 font-semibold lg:text-md xl:text-lg 2xl:text-xl">
+          <h1>
+            Im a software engineer based in the UK. I have worked with PBAPro,
+            Django and React frameworks
+          </h1>
+          <h1>Using languages such as Python and TypeScript.</h1>
+        </div>
+      </div>
+      <div className="m-32 items-center flex justify-center col-start-3 lg:block hidden">
+        <img src={wave.src} className="-translate-y-32 mr-12" />
       </div>
     </div>
   );
@@ -60,62 +110,44 @@ const NavBar = ({ page, setPage }: NavBar) => {
     setPage(e.target.innerHTML);
   }
   return (
-    <div className="h-32 text-2xl flex items-center sticky top-0 w-full justify-around font-bold text-white bg-gradient-to-b from-background  to-transparent z-10">
-      <h1
+    <div className=" h-32 text-lg lg:text-2xl flex items-center sticky top-0 justify-around font-bold text-white bg-gradient-to-b from-background to-transparent z-10">
+      <a
         onClick={handleOnClick}
+        href="#top"
         className={`${
-          page === "Home" ? "underline" : ""
+          page === "Home" ? "" : ""
         } hover:underline underline-offset-4 decoration-primary decoration-2 hover:cursor-pointer`}
       >
         Home
-      </h1>
-      <h1
+      </a>
+      <a
         onClick={handleOnClick}
+        href="#About"
         className={`${
-          page === "About" ? "underline" : ""
+          page === "About" ? "" : ""
         } hover:underline underline-offset-4 decoration-primary decoration-2 hover:cursor-pointer`}
       >
         About
-      </h1>
-      <span className="text-primary text-6xl">
+      </a>
+      <span className="text-primary text-4xl lg:text-6xl">
         <FaStarOfLife />
       </span>
-      <h1
+      <a
         onClick={handleOnClick}
         className={`${
-          page === "Work" ? "underline" : ""
+          page === "Work" ? "" : ""
         } hover:underline underline-offset-4 decoration-primary decoration-2 hover:cursor-pointer`}
       >
         Work
-      </h1>
-      <h1
+      </a>
+      <a
         onClick={handleOnClick}
         className={`${
-          page === "Contact" ? "underline" : ""
+          page === "Contact" ? "" : ""
         } hover:underline underline-offset-4 decoration-primary decoration-2 hover:cursor-pointer`}
       >
         Contact
-      </h1>
-    </div>
-  );
-};
-
-const Home = () => {
-  return (
-    <div className="w-screen flex items-center">
-      <div className="font-nav font-black text-white -translate-y-32 ml-32">
-        <div className="text-8xl">
-          <h1>Hello,</h1>
-          <h1>my name is James</h1>
-        </div>
-        <div className="mt-4 font-semibold text-xl">
-          <h1>
-            Im a software engineer based in the UK. I have worked with PBAPro,
-            Django and React frameworks
-          </h1>
-          <h1>Using languages such as Python and TypeScript.</h1>
-        </div>
-      </div>
+      </a>
     </div>
   );
 };

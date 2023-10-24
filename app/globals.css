@@ -6,3 +6,7 @@
   font-family: "Roboto";
   src: url("../public/fonts/RobotoSlab-VariableFont_wght.ttf");
 }
+
+/* html {
+  scroll-behavior: smooth;
+} */
