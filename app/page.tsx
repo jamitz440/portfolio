@@ -5,6 +5,8 @@ import thatsme from "../public/thats_me.png";
 import thatsmesm from "../public/sm_thats_me.png";
 import avatar from "../public/IMG_1506.jpg";
 import wave from "../public/wave.png";
+import buiscard from "../public/buiscard.png";
+import typing from "../public/typing.png";
 
 export default function App() {
   const [page, setPage] = useState("Home");
@@ -17,6 +19,9 @@ export default function App() {
       </div>
       <div className=" items-center flex h-screen">
         <Card />
+      </div>
+      <div className=" items-center flex h-screen">
+        <Work />
       </div>
     </main>
   );
@@ -38,9 +43,9 @@ const Card = () => {
           discovered a burgeoning passion for coding. This newfound enthusiasm
           led me to a coveted coding role within the Air Force, where I
           sharpened my skills with Python. Outside of my official duties, my
-          curiosity drove me to explore Django and later, React. For
-          me, every coding challenge presents a puzzle, and I revel in piecing
-          together its solution.
+          curiosity drove me to explore Django and later, React. For me, every
+          coding challenge presents a puzzle, and I revel in piecing together
+          its solution.
           <br />
           <br /> When I'm not immersed in lines of code, you can find me
           engrossed in the world of 3D printing. <br />
@@ -134,6 +139,7 @@ const NavBar = ({ page, setPage }: NavBar) => {
       </span>
       <a
         onClick={handleOnClick}
+        href="#Work"
         className={`${
           page === "Work" ? "" : ""
         } hover:underline underline-offset-4 decoration-primary decoration-2 hover:cursor-pointer`}
@@ -148,6 +154,64 @@ const NavBar = ({ page, setPage }: NavBar) => {
       >
         Contact
       </a>
+    </div>
+  );
+};
+
+const Work = () => {
+  const Works = {
+    1: {
+      id: 1,
+      title: "Typrings clone",
+      image: typing,
+      desc: "This was my very first react project where I wanted to use everything I had learnt from some tutorials. It is not as feature packed as typings.gg but it was enough for me to get comfortable with using react and all is capabilities.",
+      linkdesc: "The code can be found on my GitHub",
+      link: "https://github.com/jamitz440/typinggsClone",
+    },
+    2: {
+      id: 2,
+      title: "Digital business card",
+      image: buiscard,
+      desc: "Built with React and Typescript and i used tailwind for the styling. It is currently deployed on Railway.  This simple project was whipped up quickly to remind myself of  some of the basics. Even though it was a small project i still learn a lot, such as some colour theory, design work in figma before hand and i played a lot with making the site design responsive to the device it is on.",
+      linkdesc: "It can be seen here on JamesFitzsimons.co.uk",
+      link: "www.jamesfitzsimons.co.uk",
+    },
+    3: {
+      id: 3,
+      title: "More comming soon",
+      image: buiscard,
+      desc: "Nothing as of yet",
+      linkdesc: "It can't be seen yet",
+      link: "",
+    },
+  };
+  const [project, setProject] = useState(Works[1]);
+
+  function handleOnClick() {
+    if (project.id === 3) {
+      setProject(Works[1]);
+    } else {
+      const current = project.id + 1;
+      setProject(Works[current]);
+    }
+  }
+
+  return (
+    <div id="Work" className="grid grid-cols-3 gap-4 mx-8 snap-center">
+      <img src={project.image.src} className="rounded-3xl" />
+      <div className="col-span-2 flex-wrap grid grid-row-3 text-white font-nav mx-16 ">
+        <div className="row-span-1 text-3xl">{project.title}</div>
+        <div className="row-span-2">
+          <div>{project.desc}</div>
+          <div className="mt-3">{project.linkdesc}</div>
+        </div>
+      </div>
+      <button
+        className="bg-primary w-1/2 self-center m-2 rounded-full"
+        onClick={handleOnClick}
+      >
+        Next project
+      </button>
     </div>
   );
 };
