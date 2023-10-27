@@ -28,9 +28,9 @@ export default function App() {
       <div className=" items-center flex h-screen">
         <Work />
       </div>
-      {/* <div className=" items-center flex h-screen">
+      <div className=" items-center flex h-screen">
         <Contact />
-      </div> */}
+      </div>
     </main>
   );
 }
