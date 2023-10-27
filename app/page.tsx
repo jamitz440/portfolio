@@ -211,64 +211,6 @@ const NavBar = ({ page, setPage }: NavBar) => {
   );
 };
 
-const Works = () => {
-  const Works = {
-    1: {
-      id: 1,
-      title: "Typings clone",
-      image: typing,
-      desc: "This was my very first react project where I wanted to use everything I had learnt from some tutorials. It is not as feature packed as typings.gg but it was enough for me to get comfortable with using react and all is capabilities.",
-      linkdesc: "The code can be found on my GitHub",
-      link: "https://github.com/jamitz440/typinggsClone",
-    },
-    2: {
-      id: 2,
-      title: "Digital business card",
-      image: buiscard,
-      desc: "Built with React and Typescript and i used tailwind for the styling. It is currently deployed on Railway.  This simple project was whipped up quickly to remind myself of  some of the basics. Even though it was a small project i still learn a lot, such as some colour theory, design work in figma before hand and i played a lot with making the site design responsive to the device it is on.",
-      linkdesc: "It can be seen here on JamesFitzsimons.co.uk",
-      link: "www.jamesfitzsimons.co.uk",
-    },
-    3: {
-      id: 3,
-      title: "More comming soon",
-      image: buiscard,
-      desc: "Nothing as of yet",
-      linkdesc: "It can't be seen yet",
-      link: "",
-    },
-  };
-  const [project, setProject] = useState(Works[1]);
-
-  function handleOnClick() {
-    if (project.id === 3) {
-      setProject(Works[1]);
-    } else {
-      const current = project.id + 1;
-      setProject(Works[current]);
-    }
-  }
-
-  return (
-    <div id="Work" className="grid grid-cols-3 gap-4 mx-8 snap-center">
-      <img src={project.image.src} className="rounded-3xl" />
-      <div className="col-span-2 flex-wrap grid grid-row-3 text-white font-nav mx-16 ">
-        <div className="row-span-1 text-3xl">{project.title}</div>
-        <div className="row-span-2">
-          <div>{project.desc}</div>
-          <div className="mt-3">{project.linkdesc}</div>
-        </div>
-      </div>
-      <button
-        className="bg-primary w-1/2 self-center m-2 rounded-full"
-        onClick={handleOnClick}
-      >
-        Next project
-      </button>
-    </div>
-  );
-};
-
 const Work = () => {
   return (
     <div id="Work" className="grid grid-cols-4 snap-center ">
