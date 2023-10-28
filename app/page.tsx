@@ -99,7 +99,7 @@ const Card = () => {
         <div className="text-nav font-bold text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-primary ">
           A little bit about me
         </div>
-        <div className="mt-4 text-white font-nav font-semibold text-sm  lg:text-md xl:text-lg 2xl:text-xl">
+        <div className="mt-4 text-white font-nav font-semibold text-xs  lg:text-md xl:text-lg 2xl:text-xl">
           I began my career in the RAF as an avionics engineer. However, it was
           during my off-hours, tinkering with game creation in Unity3D, that I
           discovered a burgeoning passion for coding. This newfound enthusiasm
