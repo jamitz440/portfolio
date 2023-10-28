@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import {
@@ -10,8 +11,8 @@ import thatsme from "../public/thats_me.png";
 import thatsmesm from "../public/sm_thats_me.png";
 import avatar from "../public/IMG_1506.jpg";
 import wave from "../public/wave.png";
-import buiscard from "../public/buiscard.png";
-import typing from "../public/typing.png";
+import buiscard from "../public/squarebusinesscard.png";
+import typing from "../public/squaretyping.png";
 
 export default function App() {
   const [page, setPage] = useState("Home");
@@ -120,9 +121,14 @@ const Card = () => {
         </div>
       </div>
       <div className="relative items-center col-start-3 text-center rounded-[40px] m-8 aspect-square hidden lg:block">
-        <img src={thatsme.src} className=" absolute -top-14 -left-6" />
+        <img
+          src={thatsme.src}
+          alt="Hey thats me"
+          className=" absolute -top-14 -left-6"
+        />
         <img
           className="m-4 w-auto rounded-[40px] border-8 border-card"
+          alt="Avatar"
           src={avatar.src}
         ></img>
       </div>
@@ -151,8 +157,12 @@ const Home = () => {
           <h1>Using languages such as Python and TypeScript.</h1>
         </div>
       </div>
-      <div className="m-32 items-center flex justify-center col-start-3 lg:block hidden">
-        <img src={wave.src} className="-translate-y-32 mr-12" />
+      <div className="m-32 items-center justify-center col-start-3 lg:block hidden">
+        <img
+          src={wave.src}
+          alt="hand waving emoji"
+          className="-translate-y-32 mr-12"
+        />
       </div>
     </div>
   );
@@ -213,31 +223,54 @@ const NavBar = ({ page, setPage }: NavBar) => {
 
 const Work = () => {
   return (
-    <div id="Work" className="grid grid-cols-4 snap-center ">
-      <div>
-        <img className="col-span-1 rounded-2xl row-span-1 " src={typing.src} />
-      </div>
-      <div className="col-span-2 grid grid-rows-2 text-white">
-        <div className="text-left bg-card rounded-r-3xl ">
-          This was my very first react project where I wanted to use everything
-          I had learnt from some tutorials. It is not as feature packed as
-          typings.gg but it was enough for me to get comfortable with using
-          react and all is capabilities.
+    <div id="Work" className="grid grid-cols-2 snap-center ">
+      <div className="">
+        <div>
+          <img
+            className=" rounded-3xl mx-auto row-span-1 w-1/3 border-8 translate-y-24 border-card"
+            alt="typing clone"
+            src={typing.src}
+          />
         </div>
-        <div className="text-right">
-          Built with React and Typescript and i used tailwind for the styling.
-          It is currently deployed on Railway. This simple project was whipped
-          up quickly to remind myself of some of the basics. Even though it was
-          a small project i still learn a lot, such as some colour theory,
-          design work in figma before hand and i played a lot with making the
-          site design responsive to the device it is on.
+        <div className="  bg-card w-2/3 mx-auto rounded-2xl pt-24 rounded-t-3xl p-6">
+          <div className="py-3 text-primary font-bold text-2xl text-center">
+            Typing clone
+          </div>
+          <div className="font-nav text-white">
+            This was my very first react project where I wanted to use
+            everything I had learnt from some tutorials. It is not as feature
+            packed as typings.gg but it was enough for me to get comfortable
+            with using react and all is capabilities.
+          </div>
+          <div className="transition-all duration-200 text-primary hover:text-card text-center border-2 border-primary hover:bg-primary py-1 px-2 w-1/2 rounded-full mx-auto mt-4">
+            <a href="https://github.com/jamitz440/typinggsClone">
+              Find it here
+            </a>
+          </div>
         </div>
       </div>
       <div>
-        <img
-          className="col-span-1 rounded-2xl col-start-4"
-          src={buiscard.src}
-        />
+        <div>
+          <img
+            className="rounded-3xl mx-auto row-span-1 w-1/3 border-8 translate-y-24 border-card"
+            alt="Digital business card"
+            src={buiscard.src}
+          />
+        </div>
+        <div className=" bg-card w-2/3 mx-auto rounded-2xl pt-24 rounded-t-3xl p-6">
+          <div className="py-3 text-primary font-bold text-2xl text-center">
+            Digital business card
+          </div>
+          <div className="font-nav text-white">
+            Built with React and Typescript and i used tailwind for the styling.
+            It is currently deployed on Railway. This simple project was whipped
+            up quickly to remind myself of some of the basics. It may have been
+            small but I still learnt a lot.
+          </div>
+          <div className="transition-all duration-200 text-primary hover:text-card text-center border-2 border-primary hover:bg-primary py-1 px-2 w-1/2 rounded-full mx-auto mt-4">
+            <a href="https:\\www.jamesfitzsimons.co.uk">find it here</a>
+          </div>
+        </div>
       </div>
     </div>
   );
